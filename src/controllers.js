@@ -47,16 +47,36 @@ exports.analyzeFinancialData = async (req, res, next) => {
 };
 
 exports.getSummary = (req, res) => {
-  const { income, expenses } = req.body;
+  try {
+    const { income, expenses } = req.body;
 
-  const totalIncome = income.reduce((a, b) => a + b, 0);
-  const totalExpenses = expenses.reduce((a, b) => a + b, 0);
+    if (!income || !expenses) {
+      return res.status(400).json({ error: "Income and expenses are required" });
+    }
 
-  res.json({
-    totalIncome,
-    totalExpenses,
-    balance: totalIncome - totalExpenses
-  });
+    // Handle both array and object formats
+    const incomeArray = Array.isArray(income) ? income : [income];
+    const expenseArray = Array.isArray(expenses) ? expenses : [expenses];
+
+    const totalIncome = incomeArray.reduce((a, b) => {
+      if (typeof b === 'object') return a + (b.amount || 0);
+      return a + (typeof b === 'number' ? b : parseFloat(b) || 0);
+    }, 0);
+
+    const totalExpenses = expenseArray.reduce((a, b) => {
+      if (typeof b === 'object') return a + (b.amount || 0);
+      return a + (typeof b === 'number' ? b : parseFloat(b) || 0);
+    }, 0);
+
+    res.json({
+      success: true,
+      totalIncome: parseFloat(totalIncome.toFixed(2)),
+      totalExpenses: parseFloat(totalExpenses.toFixed(2)),
+      balance: parseFloat((totalIncome - totalExpenses).toFixed(2))
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to calculate summary', details: err.message });
+  }
 };
 
 exports.getHealthReport = async (req, res, next) => {
@@ -96,6 +116,9 @@ exports.getHealthReport = async (req, res, next) => {
 
     const { status, color } = getStatus(healthScore);
 
+    const monthlyBalance = metrics.totalIncome - metrics.totalExpenses;
+    const yearlyProjection = monthlyBalance * 12;
+
     res.json({
       success: true,
       healthScore,
@@ -103,9 +126,9 @@ exports.getHealthReport = async (req, res, next) => {
       statusColor: color,
       metrics,
       insights: {
-        monthlyBalance: metrics.totalIncome - metrics.totalExpenses,
-        yearlyProjection: balance * 12,
-        incomeSourceCount,
+        monthlyBalance: monthlyBalance,
+        yearlyProjection: yearlyProjection,
+        incomeSourceCount: sources,
         expenseCount: expenses.length,
         averageExpense: (metrics.totalExpenses / expenses.length).toFixed(2),
         emergencyFundTarget: (metrics.totalExpenses * 6).toFixed(2)

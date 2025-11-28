@@ -31,6 +31,10 @@ function EnhancedFinancialAnalyzer() {
 
   const loginUser = async () => {
     try {
+      if (!email.trim()) {
+        setError('Email is required');
+        return;
+      }
       const response = await axios.post('/api/users/login', { email });
       const user = response.data.user;
       setUserId(user.id);
@@ -41,30 +45,57 @@ function EnhancedFinancialAnalyzer() {
       setError(null);
       loadUserResults();
     } catch (err) {
+      console.error('Login error:', err);
       setError(err.response?.data?.error || 'Failed to login');
     }
   };
 
   const createUser = async () => {
     try {
+      if (!userName.trim() || !email.trim()) {
+        setError('Name and email are required');
+        return;
+      }
       const response = await axios.post('/api/users', { name: userName, email });
       const newUser = response.data.user;
       setUserId(newUser.id);
+      setUserName(newUser.name);
       localStorage.setItem('userId', newUser.id);
       localStorage.setItem('userName', newUser.name);
       setShowUserSetup(false);
       setError(null);
+      loadUserResults();
     } catch (err) {
+      console.error('Create user error:', err);
       setError(err.response?.data?.error || 'Failed to create user profile');
     }
   };
 
   const loadUserResults = async () => {
     try {
+      if (!userId) return;
       const response = await axios.get(`/api/users/${userId}/results`);
-      setUserResults(response.data.results);
+      setUserResults(response.data.results || []);
     } catch (err) {
       console.error('Failed to load results:', err);
+      setUserResults([]);
+    }
+  };
+
+  const loadResult = async (result) => {
+    setIncomeInputs(result.income || []);
+    setExpenseInputs(result.expenses || []);
+    setResult(result);
+    setShowHistory(false);
+  };
+
+  const deleteResult = async (resultId) => {
+    try {
+      await axios.delete(`/api/results/${resultId}`);
+      setUserResults(userResults.filter(r => r.id !== resultId));
+      setError(null);
+    } catch (err) {
+      setError('Failed to delete result');
     }
   };
 
@@ -163,26 +194,6 @@ function EnhancedFinancialAnalyzer() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const deleteResult = async (resultId) => {
-    try {
-      await axios.delete(`/api/results/${resultId}`);
-      loadUserResults();
-    } catch (err) {
-      setError('Failed to delete result');
-    }
-  };
-
-  const loadResult = (savedResult) => {
-    setIncomeInputs(savedResult.income.map(i => ({ ...i, amount: i.amount.toString() })));
-    setExpenseInputs(savedResult.expenses.map(e => ({ ...e, amount: e.amount.toString() })));
-    setResult({
-      success: true,
-      metrics: savedResult.metrics,
-      aiAdvice: savedResult.aiAdvice
-    });
-    setShowHistory(false);
   };
 
   if (showUserSetup) {
