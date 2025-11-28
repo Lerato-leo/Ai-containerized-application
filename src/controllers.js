@@ -91,7 +91,7 @@ exports.getHealthReport = async (req, res, next) => {
 
     // Simple health score calculation
     let score = 50;
-    
+
     // Savings rate impact (0-40 points)
     if (metrics.savingsRate >= 30) score += 40;
     else if (metrics.savingsRate >= 20) score += 30;
@@ -144,7 +144,7 @@ exports.getHealthReport = async (req, res, next) => {
 exports.createUser = (req, res, next) => {
   try {
     const { name, email } = req.body;
-    
+
     if (!name || !email) {
       return res.status(400).json({ error: "Name and email are required" });
     }
@@ -166,7 +166,7 @@ exports.loginUser = (req, res, next) => {
   try {
     console.log('Login attempt with email:', req.body.email);
     const { email } = req.body;
-    
+
     if (!email) {
       console.log('Login failed: No email provided');
       return res.status(400).json({ error: "Email is required" });
@@ -174,7 +174,7 @@ exports.loginUser = (req, res, next) => {
 
     const user = db.getUserByEmail(email);
     console.log('User lookup result:', user ? 'Found' : 'Not found');
-    
+
     if (!user) {
       return res.status(404).json({ error: "No account found with this email. Please register first." });
     }
@@ -200,7 +200,7 @@ exports.deleteUser = (req, res, next) => {
   try {
     const { userId } = req.params;
     const deleted = db.deleteUser(userId);
-    
+
     if (deleted) {
       res.json({ success: true, message: "User and all results deleted" });
     } else {
@@ -226,7 +226,7 @@ exports.getResult = (req, res, next) => {
   try {
     const { resultId } = req.params;
     const result = db.getResult(resultId);
-    
+
     if (result) {
       res.json({ success: true, result });
     } else {
@@ -241,7 +241,7 @@ exports.deleteResult = (req, res, next) => {
   try {
     const { resultId } = req.params;
     const deleted = db.deleteResult(resultId);
-    
+
     if (deleted) {
       res.json({ success: true, message: "Result deleted" });
     } else {

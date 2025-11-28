@@ -16,7 +16,7 @@ function EnhancedFinancialAnalyzer() {
   const [incomeInputs, setIncomeInputs] = useState([{ name: '', category: 'Salary', amount: '' }]);
   const [expenseInputs, setExpenseInputs] = useState([{ name: '', category: 'Housing', amount: '' }]);
   const [goals, setGoals] = useState([{ category: 'Emergency Fund', description: '' }]);
-  
+
   const [result, setResult] = useState(null);
   const [userResults, setUserResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -158,7 +158,7 @@ function EnhancedFinancialAnalyzer() {
           category: item.category,
           amount: parseFloat(item.amount)
         }));
-      
+
       const expenses = expenseInputs
         .filter(item => item.amount !== '')
         .map(item => ({
@@ -201,9 +201,9 @@ function EnhancedFinancialAnalyzer() {
       <div className="user-setup">
         <h2>{isLoginMode ? 'Welcome Back' : 'Create Your Profile'}</h2>
         <p>{isLoginMode ? 'Login to access your saved financial analyses' : 'Set up your profile to save and track your financial analyses'}</p>
-        
+
         {error && <div className="error-message">{error}</div>}
-        
+
         <div className="form-section">
           {!isLoginMode && (
             <input
@@ -221,20 +221,20 @@ function EnhancedFinancialAnalyzer() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button 
-            onClick={isLoginMode ? loginUser : createUser} 
+          <button
+            onClick={isLoginMode ? loginUser : createUser}
             className="submit-btn"
             disabled={isLoginMode ? !email : (!userName || !email)}
           >
             {isLoginMode ? 'Login' : 'Create Profile'}
           </button>
-          
+
           <div className="auth-toggle">
             <button onClick={() => { setIsLoginMode(!isLoginMode); setError(null); }} className="link-btn">
               {isLoginMode ? "Don't have an account? Register" : 'Already have an account? Login'}
             </button>
           </div>
-          
+
           <button onClick={() => setShowUserSetup(false)} className="link-btn">
             Skip for now
           </button>
@@ -285,7 +285,7 @@ function EnhancedFinancialAnalyzer() {
       )}
 
       <h2>AI-Powered Financial Analysis</h2>
-      
+
       <form onSubmit={handleSubmit}>
         <div className="form-section">
           <h3>Income Sources</h3>
@@ -391,7 +391,7 @@ function EnhancedFinancialAnalyzer() {
         <div className="results">
           <h2>Financial Analysis Results</h2>
           {result.saved && <p className="saved-badge">Result saved to your history</p>}
-          
+
           <div className="metrics-grid">
             <div className="metric-card">
               <h4>Total Income</h4>
