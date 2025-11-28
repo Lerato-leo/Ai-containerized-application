@@ -38,6 +38,13 @@ A smart financial management application that helps users track income, expenses
 - npm (v6 or higher)
 - Google Gemini API key (**optional** - app works without it)
 
+### Note: Package.json Files
+This project has **TWO package.json files**:
+1. **Root `package.json`** - Backend dependencies (Express, axios, dotenv, etc.)
+2. **`frontend/package.json`** - Frontend dependencies (React, react-scripts, axios, etc.)
+
+Both files are **already included** in the repository - no need to create them!
+
 ### Installation
 
 1. **Clone the repository**
@@ -348,11 +355,64 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📧 Contact
+## 👥 Contributing & Collaboration
 
-For questions or support, please open an issue on GitHub.
+### For Collaborators
+If you're joining this project as a collaborator:
 
-**Repository**: https://github.com/Lerato-leo/Ai-containerized-application
+1. **Start with the Collaborator Guide:** See `COLLABORATOR_GUIDE.md` for:
+   - Detailed setup instructions
+   - Git workflow and branching strategy
+   - Code quality standards
+   - How to push changes and create pull requests
+   - Troubleshooting common issues
+
+2. **Quick checklist:**
+   - [ ] Clone the repository
+   - [ ] Install backend: `npm install`
+   - [ ] Install frontend: `cd frontend && npm install`
+   - [ ] Create `.env` file with API key (optional)
+   - [ ] Test: Run backend and frontend
+   - [ ] Create feature branch for your changes
+   - [ ] Push and create Pull Request
+
+3. **Important files to know:**
+   - `COLLABORATOR_GUIDE.md` - Setup and workflow guide
+   - `QUICK_START.md` - Quick reference for running the app
+   - `.gitignore` - What NOT to commit (includes `.env` and `node_modules/`)
+
+### Pushing to GitHub
+
+Before pushing your changes:
+
+1. **Ensure both package.json files are present** (they are auto-tracked):
+   - Root: `package.json` (backend)
+   - Frontend: `frontend/package.json` (React)
+
+2. **Never commit:**
+   - `.env` file (contains API keys)
+   - `node_modules/` folder
+   - `data/` folder (auto-generated)
+
+3. **Always test before pushing:**
+   ```bash
+   # Backend running?
+   node server.js
+   
+   # Frontend running?
+   cd frontend && npm start
+   ```
+
+4. **Create meaningful commit messages:**
+   ```bash
+   git commit -m "[FEATURE] Add user profile page
+   
+   - Added new profile component
+   - Added route to /profile
+   - Updated navigation menu"
+   ```
+
+5. **Create a Pull Request** on GitHub for review before merging
 
 ---
 
