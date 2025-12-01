@@ -1,0 +1,227 @@
+:root[data-theme="light"] {
+  --bg-primary: #fef8f3;
+  --bg-secondary: #fffbf7;
+  --text-primary: #2d1810;
+  --text-secondary: #8b6f5c;
+  --card-bg: #ffffff;
+  --border-color: #f4e4d7;
+  --shadow-color: rgba(218, 145, 100, 0.12);
+  --input-bg: #fdf6ef;
+  --accent-color: #e67e50;
+  --progress-bg: #fceee5;
+  --header-bg: linear-gradient(135deg, #f4a460 0%, #e67e50 100%);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #1a1d29;
+  --bg-secondary: #252936;
+  --text-primary: #e9ecef;
+  --text-secondary: #adb5bd;
+  --card-bg: #2d3142;
+  --border-color: #3d4152;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: #1f222e;
+  --accent-color: #7c8adb;
+  --progress-bg: #3d4152;
+  --header-bg: linear-gradient(135deg, #4a5899 0%, #5a3d7a 100%);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.App-header {
+  background: var(--header-bg);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  position: relative;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.App-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.App-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.header-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.theme-toggle,
+.logout-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover,
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:active,
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+.theme-icon,
+.logout-icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.theme-label,
+.logout-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+.logout-btn {
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.25);
+}
+
+.logout-btn:hover {
+  background: rgba(255, 77, 77, 0.25);
+}
+
+@media (max-width: 768px) {
+  .header-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .theme-toggle,
+  .logout-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .theme-label,
+  .logout-label {
+    display: none;
+  }
+}
+
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-navigation button {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  border: 2px solid var(--accent-color);
+  background: var(--bg-secondary);
+  color: var(--accent-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.tab-navigation button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  background: var(--input-bg);
+}
+
+.tab-navigation button.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: transparent;
+}
+
+.App-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.App-footer {
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .App-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .tab-navigation {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .tab-navigation button {
+    width: 100%;
+  }
+
+  .App-main {
+    padding: 1rem;
+  }
+
+  .theme-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
