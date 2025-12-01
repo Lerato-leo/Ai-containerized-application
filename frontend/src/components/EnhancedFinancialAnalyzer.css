@@ -1,20 +1,20 @@
 .enhanced-financial-analyzer {
-  background: var(--card-bg);
+  background: white;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 8px 16px var(--shadow-color);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 .user-setup {
-  background: var(--card-bg);
+  background: white;
   padding: 3rem 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 20px var(--shadow-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   max-width: 480px;
   margin: 2rem auto;
   animation: fadeIn 0.5s ease-in;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
 }
 
 @keyframes fadeIn {
@@ -29,7 +29,7 @@
 }
 
 .user-setup h2 {
-  color: var(--text-primary);
+  color: #1e293b;
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -37,7 +37,7 @@
 }
 
 .user-setup p {
-  color: var(--text-secondary);
+  color: #64748b;
   margin-bottom: 2rem;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -49,15 +49,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: var(--input-bg);
+  background: #f8fafc;
   border-radius: 10px;
   margin-bottom: 1.5rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
 }
 
 .user-bar span {
   font-weight: 600;
-  color: var(--accent-color);
+  color: #667eea;
 }
 
 .history-btn {
@@ -78,26 +78,26 @@
 .form-section input[type="email"] {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   font-size: 0.95rem;
   margin-bottom: 1rem;
   transition: all 0.2s ease;
-  background: var(--input-bg);
+  background: #f8fafc;
   font-family: inherit;
-  color: var(--text-primary);
+  color: #1e293b;
 }
 
 .form-section input[type="text"]:focus,
 .form-section input[type="email"]:focus {
   outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px var(--shadow-color);
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .form-section input[type="text"]::placeholder,
 .form-section input[type="email"]::placeholder {
-  color: var(--text-secondary);
+  color: #64748b;
 }
 
 .error-message {
@@ -134,7 +134,7 @@
 
 .auth-toggle .link-btn {
   background: transparent;
-  color: var(--accent-color);
+  color: #667eea;
   border: none;
   padding: 0.5rem;
   font-size: 0.9rem;
@@ -144,15 +144,15 @@
 }
 
 .auth-toggle .link-btn:hover {
-  color: var(--text-primary);
+  color: #1e293b;
   background: transparent;
 }
 
 .link-btn {
   width: 100%;
   background: transparent;
-  color: var(--accent-color);
-  border: 1px solid var(--border-color);
+  color: #667eea;
+  border: 1px solid #e2e8f0;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
@@ -165,20 +165,20 @@
 }
 
 .link-btn:hover {
-  background: var(--input-bg);
-  border-color: var(--accent-color);
+  background: #f8fafc;
+  border-color: #667eea;
 }
 
 .history-panel {
-  background: var(--input-bg);
+  background: #f8fafc;
   padding: 1.5rem;
   border-radius: 10px;
   margin-bottom: 2rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
 }
 
 .history-panel h3 {
-  color: var(--accent-color);
+  color: #667eea;
   margin-bottom: 1rem;
 }
 
@@ -189,14 +189,14 @@
 }
 
 .history-item {
-  background: var(--card-bg);
+  background: white;
   padding: 1rem;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px var(--shadow-color);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 .history-info {
@@ -206,11 +206,11 @@
 }
 
 .history-info strong {
-  color: var(--text-primary);
+  color: #1e293b;
 }
 
 .history-info span {
-  color: var(--text-secondary);
+  color: #64748b;
   font-size: 0.9rem;
 }
 
@@ -246,7 +246,7 @@
 }
 
 .enhanced-financial-analyzer h2 {
-  color: var(--accent-color);
+  color: #667eea;
   margin-bottom: 1.5rem;
   text-align: center;
   font-size: 1.8rem;
@@ -257,7 +257,7 @@
 }
 
 .form-section h3 {
-  color: var(--text-primary);
+  color: #1e293b;
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -272,12 +272,12 @@
 
 .input-row input, .input-row select {
   padding: 0.75rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  background: var(--input-bg);
-  color: var(--text-primary);
+  background: #f8fafc;
+  color: #1e293b;
 }
 
 .input-row input[type="text"] {
@@ -294,27 +294,27 @@
 
 .input-row input:focus, .input-row select:focus {
   outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px var(--shadow-color);
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
   resize: vertical;
   transition: border-color 0.3s ease;
-  background: var(--input-bg);
-  color: var(--text-primary);
+  background: #f8fafc;
+  color: #1e293b;
 }
 
 textarea:focus {
   outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px var(--shadow-color);
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .add-btn, .remove-btn {
@@ -327,16 +327,16 @@ textarea:focus {
 }
 
 .add-btn {
-  background: var(--input-bg);
-  color: var(--text-primary);
+  background: #f8fafc;
+  color: #1e293b;
   width: 100%;
   margin-top: 0.5rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
 }
 
 .add-btn:hover {
-  background: var(--border-color);
-  border-color: var(--accent-color);
+  background: #e2e8f0;
+  border-color: #667eea;
 }
 
 .remove-btn {
@@ -352,7 +352,7 @@ textarea:focus {
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background: var(--accent-color);
+  background: #667eea;
   color: white;
   border: none;
   border-radius: 8px;
@@ -365,7 +365,7 @@ textarea:focus {
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px var(--shadow-color);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   filter: brightness(1.1);
 }
 
@@ -396,11 +396,11 @@ textarea:focus {
 .results {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 2px solid var(--border-color);
+  border-top: 2px solid #e2e8f0;
 }
 
 .results h2 {
-  color: var(--accent-color);
+  color: #667eea;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -413,16 +413,16 @@ textarea:focus {
 }
 
 .metric-card {
-  background: var(--input-bg);
+  background: #f8fafc;
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 8px var(--shadow-color);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 .metric-card h4 {
-  color: var(--text-secondary);
+  color: #64748b;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -432,7 +432,7 @@ textarea:focus {
 .metric-card .value {
   font-size: 1.8rem;
   font-weight: bold;
-  color: var(--text-primary);
+  color: #1e293b;
 }
 
 .metric-card .value.positive {
@@ -448,7 +448,7 @@ textarea:focus {
 }
 
 .category-breakdown h3 {
-  color: var(--accent-color);
+  color: #667eea;
   margin-bottom: 1rem;
 }
 
@@ -465,8 +465,8 @@ textarea:focus {
   padding: 0.75rem 1rem;
   border-radius: 8px;
   font-size: 0.95rem;
-  background: var(--input-bg);
-  border: 1px solid var(--border-color);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
 }
 
 .category-item.income-cat {
@@ -478,29 +478,29 @@ textarea:focus {
 }
 
 .category-item span {
-  color: var(--text-secondary);
+  color: #64748b;
   font-weight: 500;
 }
 
 .category-item strong {
-  color: var(--text-primary);
+  color: #1e293b;
   font-weight: 600;
 }
 
 .ai-advice {
-  background: var(--input-bg);
+  background: #f8fafc;
   padding: 1.5rem;
   border-radius: 10px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #e2e8f0;
 }
 
 .ai-advice h3 {
-  color: var(--accent-color);
+  color: #667eea;
   margin-bottom: 1rem;
 }
 
 .advice-content {
-  color: var(--text-primary);
+  color: #1e293b;
   line-height: 1.8;
   white-space: pre-wrap;
   font-size: 1rem;
@@ -541,3 +541,4 @@ textarea:focus {
     flex: 1;
   }
 }
+
