@@ -49,62 +49,66 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="header-content">
-          <div className="header-title">
-            <h1>AI Financial Wellness Coach</h1>
-            <p>The world of financial freedom</p>
-          </div>
-          <div className="header-controls">
-            <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
-              <span className="theme-icon">{theme === 'light' ? '🌙' : '☀️'}</span>
-              <span className="theme-label">{theme === 'light' ? 'Dark' : 'Light'}</span>
-            </button>
-            {isLoggedIn && (
-              <button className="logout-btn" onClick={handleLogout} title="Logout">
-                <span className="logout-icon">⎋</span>
-                <span className="logout-label">Logout</span>
+      <header className="app-header">
+        <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem' }}>
+            <div>
+              <h1 className="app-title">AI Financial Wellness Coach</h1>
+              <p className="app-subtitle">The world of financial freedom</p>
+            </div>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
+                <span className="theme-icon">{theme === 'light' ? '🌙' : '☀️'}</span>
+                <span className="theme-label">{theme === 'light' ? 'Dark' : 'Light'}</span>
               </button>
-            )}
+              {isLoggedIn && (
+                <button className="logout-btn" onClick={handleLogout} title="Logout">
+                  <span className="logout-icon">⎋</span>
+                  <span className="logout-label">Logout</span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </header>
 
-      <div className="tab-navigation">
-        <button 
-          className={activeTab === 'analyzer' ? 'active' : ''}
-          onClick={() => setActiveTab('analyzer')}
-        >
-          Enhanced Analysis
-        </button>
-        <button 
-          className={activeTab === 'summary' ? 'active' : ''}
-          onClick={() => setActiveTab('summary')}
-        >
-          Quick Summary
-        </button>
-        <button 
-          className={activeTab === 'spending' ? 'active' : ''}
-          onClick={() => setActiveTab('spending')}
-        >
-          Spending Dashboard
-        </button>
-        <button 
-          className={activeTab === 'goals' ? 'active' : ''}
-          onClick={() => setActiveTab('goals')}
-        >
-          Goals Dashboard
-        </button>
-      </div>
+      <nav className="app-nav">
+        <div className="nav-buttons">
+          <button 
+            className={`nav-button ${activeTab === 'analyzer' ? 'active' : ''}`}
+            onClick={() => setActiveTab('analyzer')}
+          >
+            📊 Enhanced Analysis
+          </button>
+          <button 
+            className={`nav-button ${activeTab === 'summary' ? 'active' : ''}`}
+            onClick={() => setActiveTab('summary')}
+          >
+            📋 Quick Summary
+          </button>
+          <button 
+            className={`nav-button ${activeTab === 'spending' ? 'active' : ''}`}
+            onClick={() => setActiveTab('spending')}
+          >
+            💳 Spending Dashboard
+          </button>
+          <button 
+            className={`nav-button ${activeTab === 'goals' ? 'active' : ''}`}
+            onClick={() => setActiveTab('goals')}
+          >
+            🎯 Goals Dashboard
+          </button>
+        </div>
+      </nav>
 
-      <main className="App-main">
+      <main className="container">
         {activeTab === 'analyzer' && <EnhancedFinancialAnalyzer />}
         {activeTab === 'summary' && <FinancialSummary />}
         {activeTab === 'spending' && <SpendingDashboard />}
         {activeTab === 'goals' && <GoalsDashboard />}
       </main>
 
-      <footer className="App-footer">
+      <footer style={{ background: '#fff', color: '#64748b', textAlign: 'center', padding: '1.5rem', marginTop: 'auto', borderTop: '1px solid #e2e8f0' }}>
         <p>© 2025 AI Financial Wellness Coach | Powered by SyntaxNova</p>
       </footer>
     </div>
