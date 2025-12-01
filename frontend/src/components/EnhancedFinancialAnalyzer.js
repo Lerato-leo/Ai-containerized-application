@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './EnhancedFinancialAnalyzer.css';
 
@@ -23,11 +23,22 @@ function EnhancedFinancialAnalyzer() {
   const [error, setError] = useState(null);
   const [showHistory, setShowHistory] = useState(false);
 
+  const loadUserResults = useCallback(async () => {
+    try {
+      if (!userId) return;
+      const response = await axios.get(`/api/users/${userId}/results`);
+      setUserResults(response.data.results || []);
+    } catch (err) {
+      console.error('Failed to load results:', err);
+      setUserResults([]);
+    }
+  }, [userId]);
+
   useEffect(() => {
     if (userId) {
       loadUserResults();
     }
-  }, [userId]);
+  }, [userId, loadUserResults]);
 
   const loginUser = async () => {
     try {
@@ -68,17 +79,6 @@ function EnhancedFinancialAnalyzer() {
     } catch (err) {
       console.error('Create user error:', err);
       setError(err.response?.data?.error || 'Failed to create user profile');
-    }
-  };
-
-  const loadUserResults = async () => {
-    try {
-      if (!userId) return;
-      const response = await axios.get(`/api/users/${userId}/results`);
-      setUserResults(response.data.results || []);
-    } catch (err) {
-      console.error('Failed to load results:', err);
-      setUserResults([]);
     }
   };
 
