@@ -1,0 +1,119 @@
+[
+  {
+    "id": "c09726dc-23da-4aa8-a0a0-1dd51263fba7",
+    "userId": "47a8b87b-48b5-41b7-b6e5-4b96d0091ecd",
+    "userName": "lerato",
+    "date": "2025-12-02T11:35:15.233Z",
+    "income": [
+      {
+        "name": "Capaciti stipend",
+        "category": "Salary",
+        "amount": 9000
+      },
+      {
+        "name": "Interest",
+        "category": "Investments",
+        "amount": 590
+      }
+    ],
+    "expenses": [
+      {
+        "name": "Project Y repayment",
+        "category": "Debt",
+        "amount": 120
+      },
+      {
+        "name": "Rent",
+        "category": "Housing",
+        "amount": 3500
+      }
+    ],
+    "goals": "Retirement: 100000",
+    "metrics": {
+      "totalIncome": 9590,
+      "totalExpenses": 3620,
+      "actualMonthlySavings": 5970,
+      "savingsRate": 62.252346193952036,
+      "overspending": false
+    },
+    "aiAdvice": "FINANCIAL HEALTH ANALYSIS\n==================================================\n\nSTATUS: OUTSTANDING\n62.3% savings rate - exceptional!\n\nMonthly Overview:\n- Income: R9,590\n- Expenses: R3,620 (37.7%)\n- Savings: R5970.00 (62.3%)\n\nKey Insights:\n- Largest expense: Housing (R3,500, 96.7%)\n- Income sources: 2 (good diversification)\n- Emergency fund timeline: 3.6 months at current rate\n- Your goals: Retirement: 100000\n\n==================================================\nTOP 3 RECOMMENDATIONS\n==================================================\n\n1. Maximize Wealth Building\n   - Exceptional 62.3% savings rate!\n   - Max out TFSA (R36k/year) + RA (27.5% income)\n   - Invest 3582.00 in growth ETFs\n   - Allocate 1791.00 to property/REITs\n   - Financial independence possible in 15-20 years\n\n2. Execute Strategic Goals\n   - Your goals: Retirement: 100000\n   - Annual savings power: R71,640\n   - Build passive income streams\n   - Consider property investment\n   - Plan for early retirement options\n\n3. Tax & Legacy Planning\n   - Consult certified financial planner\n   - Maximize RA (save up to R2637.25 in tax)\n   - Explore offshore investment (R1M/year)\n   - Set up trust for estate planning\n   - Review life insurance coverage\n\n==================================================\nTHIS MONTH'S ACTION STEPS\n==================================================\n\n1. Meet with financial advisor\n2. Open TFSA or investment account\n3. Update financial goals\n4. Track net worth monthly\n\n==================================================\nExceptional discipline! You're on track for financial freedom.\n==================================================\n"
+  },
+  {
+    "id": "dedbdd1f-ee7f-4b23-977d-b0d668534b45",
+    "userId": "4a76d69f-bd2c-45bb-9904-b44511e09d48",
+    "userName": "Anonymous",
+    "date": "2025-12-02T11:47:34.632Z",
+    "income": [
+      {
+        "amount": 5000,
+        "category": "Salary",
+        "name": "Salary"
+      }
+    ],
+    "expenses": [
+      {
+        "amount": 1500,
+        "category": "Housing",
+        "name": "Rent"
+      },
+      {
+        "amount": 500,
+        "category": "Food",
+        "name": "Food"
+      }
+    ],
+    "goals": [],
+    "metrics": {
+      "totalIncome": 5000,
+      "totalExpenses": 2000,
+      "actualMonthlySavings": 3000,
+      "savingsRate": 60,
+      "overspending": false
+    },
+    "aiAdvice": "FINANCIAL HEALTH ANALYSIS\n==================================================\n\nSTATUS: OUTSTANDING\n60.0% savings rate - exceptional!\n\nMonthly Overview:\n- Income: R5,000\n- Expenses: R2,000 (40.0%)\n- Savings: R3000.00 (60.0%)\n\nKey Insights:\n- Largest expense: Housing (R1,500, 75.0%)\n- Income sources: 1 (consider adding more)\n- Emergency fund timeline: 4.0 months at current rate\n- Your goals: \n\n==================================================\nTOP 3 RECOMMENDATIONS\n==================================================\n\n1. Maximize Wealth Building\n   - Exceptional 60.0% savings rate!\n   - Max out TFSA (R36k/year) + RA (27.5% income)\n   - Invest 1800.00 in growth ETFs\n   - Allocate 900.00 to property/REITs\n   - Financial independence possible in 15-20 years\n\n2. Execute Strategic Goals\n   - Your goals: \n   - Annual savings power: R36,000\n   - Build passive income streams\n   - Consider property investment\n   - Plan for early retirement options\n\n3. Tax & Legacy Planning\n   - Consult certified financial planner\n   - Maximize RA (save up to R1375.00 in tax)\n   - Explore offshore investment (R1M/year)\n   - Set up trust for estate planning\n   - Review life insurance coverage\n\n==================================================\nTHIS MONTH'S ACTION STEPS\n==================================================\n\n1. Meet with financial advisor\n2. Open TFSA or investment account\n3. Update financial goals\n4. Track net worth monthly\n\n==================================================\nExceptional discipline! You're on track for financial freedom.\n==================================================\n"
+  },
+  {
+    "id": "c15edc91-8b8c-4c8e-b3dc-50e0a04740e5",
+    "userId": "15fe7cbb-15c7-41f4-8c3a-7077ec0bb025",
+    "userName": "Anonymous",
+    "date": "2025-12-02T12:25:26.639Z",
+    "income": [
+      {
+        "name": "Unnamed",
+        "category": "Other",
+        "amount": 2000
+      },
+      {
+        "name": "Unnamed",
+        "category": "Other",
+        "amount": 3000
+      }
+    ],
+    "expenses": [
+      {
+        "name": "Unnamed",
+        "category": "Other",
+        "amount": 1000
+      },
+      {
+        "name": "Unnamed",
+        "category": "Other",
+        "amount": 500
+      },
+      {
+        "name": "Unnamed",
+        "category": "Other",
+        "amount": 300
+      }
+    ],
+    "goals": [],
+    "metrics": {
+      "totalIncome": 5000,
+      "totalExpenses": 1800,
+      "actualMonthlySavings": 3200,
+      "savingsRate": 64,
+      "overspending": false
+    },
+    "aiAdvice": "FINANCIAL HEALTH ANALYSIS\n==================================================\n\nSTATUS: OUTSTANDING\n64.0% savings rate - exceptional!\n\nMonthly Overview:\n- Income: R5,000\n- Expenses: R1,800 (36.0%)\n- Savings: R3200.00 (64.0%)\n\nKey Insights:\n- Largest expense: Other (R1,800, 100.0%)\n- Income sources: 1 (consider adding more)\n- Emergency fund timeline: 3.4 months at current rate\n- Your goals: \n\n==================================================\nTOP 3 RECOMMENDATIONS\n==================================================\n\n1. Maximize Wealth Building\n   - Exceptional 64.0% savings rate!\n   - Max out TFSA (R36k/year) + RA (27.5% income)\n   - Invest 1920.00 in growth ETFs\n   - Allocate 960.00 to property/REITs\n   - Financial independence possible in 15-20 years\n\n2. Execute Strategic Goals\n   - Your goals: \n   - Annual savings power: R38,400\n   - Build passive income streams\n   - Consider property investment\n   - Plan for early retirement options\n\n3. Tax & Legacy Planning\n   - Consult certified financial planner\n   - Maximize RA (save up to R1375.00 in tax)\n   - Explore offshore investment (R1M/year)\n   - Set up trust for estate planning\n   - Review life insurance coverage\n\n==================================================\nTHIS MONTH'S ACTION STEPS\n==================================================\n\n1. Meet with financial advisor\n2. Open TFSA or investment account\n3. Update financial goals\n4. Track net worth monthly\n\n==================================================\nExceptional discipline! You're on track for financial freedom.\n==================================================\n"
+  }
+]
