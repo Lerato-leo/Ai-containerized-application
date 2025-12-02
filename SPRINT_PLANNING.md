@@ -3,6 +3,145 @@
 **Project:** AI-Powered Financial Wellness Coach - Containerized DevOps Capstone  
 **Duration:** Week 4 (Sprint-based development)  
 **Completion Date:** December 2, 2025  
+**Status:** ✅ COMPLETE & SUBMITTED
+
+---
+
+## 👥 Team Roles & Responsibilities
+
+### Team Members & Assignments
+
+| Member | Role | Responsibilities | Deliverables |
+|--------|------|------------------|---------------|
+| **Thelezinhle Buthelezi** | Application Developer | • Backend API development (Express.js)<br>• Frontend UI development (React)<br>• AI integration (Google Gemini)<br>• User authentication<br>• Data persistence & business logic | • `src/` backend files<br>• `frontend/` React components<br>• API endpoints (10+)<br>• User workflows |
+| **Thato Rapholo** | DevOps Engineer | • Docker containerization<br>• Kubernetes manifest creation<br>• CI/CD pipeline setup (GitHub Actions)<br>• Container orchestration<br>• Infrastructure as Code (IaC)<br>• Security implementation (RBAC, NetworkPolicy) | • `Dockerfile.backend`<br>• `Dockerfile.frontend`<br>• `k8s-manifest.yaml`<br>• `.github/workflows/`<br>• CI/CD automation |
+| **Lerato Matamela** | Deployment & Documentation Lead | • Kubernetes deployment verification<br>• Testing & validation<br>• Final deployment & troubleshooting<br>• Comprehensive documentation<br>• Capstone reflection<br>• Grader-facing guides<br>• Docker Hub registry management | • `capstone_reflection.md`<br>• `README_SUBMISSION.md`<br>• `TESTING_GUIDE.md`<br>• `CI_CD_SETUP.md`<br>• Deployment verification<br>• Screenshots & evidence |
+
+### Shared Responsibilities
+
+- ✅ Documentation (each on their component)
+- ✅ Testing (end-to-end)
+- ✅ Code review
+- ✅ Git commits & GitHub management
+- ✅ Problem-solving & troubleshooting
+
+---
+
+## 📋 Capstone Requirements Fulfillment
+
+### ✅ Requirement 1: A Working Application
+
+**Owner:** Thelezinhle Buthelezi (Application Developer)
+
+**Deliverables:**
+- ✅ Simple but functional app with UI, backend service, and AI integration
+- ✅ React frontend with 4 interactive dashboards
+- ✅ Express.js backend with 10+ API endpoints
+- ✅ Google Gemini AI integration
+- ✅ Runs locally via `npm start`
+- ✅ Containerized in Docker images (191MB backend, 82.7MB frontend)
+
+**Evidence:**
+- Running React UI with financial analysis features
+- Backend API responding on port 3000
+- AI-powered recommendations generating in 2-5 seconds
+- User authentication and data persistence working
+
+---
+
+### ✅ Requirement 2: A Complete CI/CD Pipeline
+
+**Owner:** Thato Rapholo (DevOps Engineer)
+
+**Deliverables:**
+- ✅ Automated build on code push
+- ✅ Automated testing (linting, build validation)
+- ✅ Container image creation (Docker build)
+- ✅ Registry push (Docker Hub)
+- ✅ Kubernetes deployment (optional, requires kubeconfig)
+- ✅ GitHub Actions workflow file (`.github/workflows/docker-build-deploy.yml`)
+
+**Evidence:**
+- GitHub Actions workflow configured
+- Docker images automatically pushed to `leratomatamela1/ai-finance-*`
+- CI/CD status checks passing
+- Pipeline documentation complete
+
+---
+
+### ✅ Requirement 3: Kubernetes/OpenShift Deployment
+
+**Owner:** Thato Rapholo (DevOps Engineer), verified by Lerato Matamela (Deployment Lead)
+
+**Deliverables:**
+- ✅ Production-ready Kubernetes manifest (415+ lines)
+- ✅ Deployments with replicas (2 per service)
+- ✅ Services (ClusterIP backend, LoadBalancer frontend)
+- ✅ ConfigMap for configuration
+- ✅ Secret for sensitive data (Gemini API key)
+- ✅ Health checks (liveness & readiness probes)
+- ✅ Resource limits (CPU 500m/250m, Memory 512Mi/256Mi)
+- ✅ Horizontal Pod Autoscaler (HPA) (1-3 pods)
+- ✅ RBAC (ServiceAccount, ClusterRole, ClusterRoleBinding)
+- ✅ NetworkPolicy (pod isolation & security)
+- ✅ PersistentVolumeClaim (5Gi storage)
+
+**Evidence:**
+- All 4 pods running and healthy
+- Services properly exposed and responding
+- Storage mounted and accessible
+- Security policies enforced
+- HPA monitoring pod metrics
+
+---
+
+### ✅ Requirement 4: Documentation & Evidence
+
+**Owner:** Lerato Matamela (Documentation Lead), with contributions from Thelezinhle & Thato
+
+**Deliverables:**
+
+**Architecture Documentation:**
+- ✅ `capstone_reflection.md` - Complete architecture and deployment process (12 sections)
+- ✅ Architecture diagrams and system design
+- ✅ Technology stack documentation
+
+**Deployment Documentation:**
+- ✅ `README.md` - Main project documentation
+- ✅ `README_SUBMISSION.md` - Grader-focused deployment guide
+- ✅ `k8s-manifest.yaml` - Kubernetes deployment file (415+ lines, fully documented)
+- ✅ Step-by-step reproduction instructions
+
+**Testing & Verification:**
+- ✅ `TESTING_GUIDE.md` - Comprehensive testing procedures
+- ✅ `TESTING_REPORT.md` - All tests passing
+- ✅ `KUBERNETES_DEPLOYMENT_REPORT.md` - Kubernetes validation results
+
+**CI/CD Documentation:**
+- ✅ `CI_CD_SETUP.md` - GitHub Actions pipeline setup guide
+- ✅ `.github/workflows/docker-build-deploy.yml` - Automated pipeline
+
+**Environment Configuration:**
+- ✅ `ENV_SETUP.md` - Environment variable configuration
+- ✅ `ENV_CONFIGURATION.md` - Complete variable reference
+- ✅ `.env.example` - Configuration template
+
+**Additional Documentation:**
+- ✅ `SPRINT_PLANNING.md` - This development timeline
+- ✅ `SUBMISSION_CHECKLIST.md` - Final verification checklist
+
+**Screenshots & Evidence:**
+- ✅ `/screenshots/` folder for deployment evidence
+- ✅ Docker Hub image links
+- ✅ GitHub commit history (clean, well-documented commits)
+- ✅ Project structure (organized, professional)
+
+**Evidence:**
+- 10+ comprehensive markdown documentation files
+- Clear git history with meaningful commits
+- Screenshots demonstrating running application
+- Architecture diagrams in documentation
+- Complete deployment reproduction guide
 
 ---
 
