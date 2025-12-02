@@ -1,0 +1,7 @@
+# This file ensures the screenshots folder is tracked by Git
+# Add your deployment evidence screenshots here:
+# - app running screenshot
+# - kubectl get pods output
+# - Docker Hub images
+# - API testing results
+# - etc.
