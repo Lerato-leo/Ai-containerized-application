@@ -13,12 +13,28 @@ metadata:
   name: ai-finance-config
   namespace: ai-finance
 data:
+  # Application Settings
   NODE_ENV: "production"
   PORT: "3000"
   FRONTEND_PORT: "3001"
 
+  # AI/LLM Configuration (Google Gemini)
+  AI_PROVIDER: "gemini"
+  AI_MODEL: "gemini-1.5-flash"
+  # Note: API URL not needed for Gemini (uses https://generativelanguage.googleapis.com)
+
+  # Database Configuration
+  DATA_DIR: "./data"
+
+  # Kubernetes Configuration
+  K8S_NAMESPACE: "ai-finance"
+
+  # Logging & Debug
+  LOG_LEVEL: "info"
+  DEBUG: "false"
+
 ---
-# Secret for sensitive environment variables
+# Secret for sensitive environment variables (Google Gemini API Key)
 apiVersion: v1
 kind: Secret
 metadata:
@@ -26,8 +42,10 @@ metadata:
   namespace: ai-finance
 type: Opaque
 stringData:
-  GEMINI_API_KEY: "AIzaSyAkKJ8A1_EXAMPLE_KEY" # Replace with actual key
-  DB_PATH: "/data/finance_db.json"
+  # ⚠️  REQUIRED: Replace 'your_actual_gemini_api_key_here' with your actual Gemini API key
+  # Get your key from: https://ai.google.dev/tutorials/setup
+  # Note: This key is required for AI financial advice generation
+  AI_API_KEY: "your_actual_gemini_api_key_here"
 
 ---
 # PersistentVolumeClaim for backend data
