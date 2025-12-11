@@ -1,31 +1,47 @@
-# How to Access the Application Locally
+# How to Access the Application
 
-The application is running **inside Kubernetes pods**, not on your local machine. To access it, you need to set up port-forwarding.
+## Local Development
 
-## Step 1: Open Terminal/PowerShell
+### Prerequisites
+- Node.js v18+
+- npm v8+
+- Optional: Google Gemini API key for AI features
 
-## Step 2: Port-Forward Frontend (React App)
+### Running Locally
 
-Run this command and **keep it running** (don't close the terminal):
-
+**Terminal 1 - Start Backend:**
 ```powershell
-kubectl port-forward -n ai-finance svc/ai-finance-frontend-svc 3001:3001
+$env:PORT=5000 ; node server.js
 ```
 
-You should see:
-```
-Forwarding from 127.0.0.1:3001 -> 3001
-Forwarding from [::1]:3001 -> 3001
-```
-
-## Step 3: Open Browser
-
-In a **new browser tab**, go to:
-```
-http://localhost:3001
+**Terminal 2 - Start Frontend:**
+```powershell
+cd frontend
+npm start
 ```
 
-You should see the React app load with the financial analyzer form.
+### Access the App
+
+**Frontend:** http://localhost:3002  
+**Backend API:** http://localhost:5000
+
+The app automatically opens in your browser when React compiles.
+
+## Cloud Deployment (Railway.app)
+
+This application is configured for **Railway.app** deployment:
+
+1. Push code to GitHub
+2. Connect your GitHub repo to Railway.app
+3. Railway automatically builds and deploys using `railway.toml`
+4. Your app is live in minutes!
+
+**Deployment Features:**
+- Automatic builds on GitHub push
+- Multi-service setup (backend + frontend)
+- Health checks every 10 seconds
+- Environment variables configured
+- Zero-downtime deployments
 
 ---
 

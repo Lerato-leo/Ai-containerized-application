@@ -6,6 +6,7 @@ function SpendingDashboard() {
   const [userId] = useState(localStorage.getItem('userId') || '');
   const [userResults, setUserResults] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (userId) {
@@ -19,39 +20,65 @@ function SpendingDashboard() {
   const loadUserResults = async () => {
     try {
       const response = await axios.get(`/api/users/${userId}/results`);
-      setUserResults(response.data.results);
+      if (response.data && response.data.results && Array.isArray(response.data.results)) {
+        setUserResults(response.data.results);
+      } else {
+        setUserResults([]);
+      }
+      setError(null);
     } catch (err) {
       console.error('Failed to load results:', err);
+      setError('Failed to load spending data. Please try again.');
+      setUserResults([]);
     } finally {
       setLoading(false);
     }
   };
 
   const calculateSpendingTrends = () => {
-    if (!userResults.length) return null;
+    if (!userResults || !userResults.length) return null;
 
     const categoryTotals = {};
     const monthlySpending = [];
 
     userResults.forEach(result => {
-      if (result.metrics.expensesByCategory) {
-        Object.entries(result.metrics.expensesByCategory).forEach(([category, amount]) => {
-          categoryTotals[category] = (categoryTotals[category] || 0) + amount;
-        });
+      try {
+        if (result && result.metrics && result.metrics.expensesByCategory) {
+          Object.entries(result.metrics.expensesByCategory).forEach(([category, amount]) => {
+            const numAmount = parseFloat(amount) || 0;
+            categoryTotals[category] = (categoryTotals[category] || 0) + numAmount;
+          });
+        }
+        if (result && result.metrics && result.metrics.totalExpenses) {
+          monthlySpending.push({
+            date: result.date ? new Date(result.date).toLocaleDateString() : 'Unknown',
+            total: parseFloat(result.metrics.totalExpenses) || 0
+          });
+        }
+      } catch (e) {
+        console.error('Error processing result:', e);
       }
-      monthlySpending.push({
-        date: new Date(result.date).toLocaleDateString(),
-        total: result.metrics.totalExpenses
-      });
     });
 
-    return { categoryTotals, monthlySpending };
+    return Object.keys(categoryTotals).length > 0 ? { categoryTotals, monthlySpending } : null;
   };
 
   const trends = calculateSpendingTrends();
 
   if (loading) {
     return <div className="dashboard-loading">Loading dashboard...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="dashboard-empty">
+        <h2>Spending Analysis Dashboard</h2>
+        <p style={{ color: '#ef4444' }}>{error}</p>
+        <button onClick={loadUserResults} style={{ marginTop: '1rem', padding: '0.75rem 1.5rem', borderRadius: '8px', border: 'none', background: '#667eea', color: 'white', cursor: 'pointer' }}>
+          Retry
+        </button>
+      </div>
+    );
   }
 
   if (!userId) {
@@ -75,7 +102,7 @@ function SpendingDashboard() {
   return (
     <div className="dashboard">
       <h2>Spending Analysis Dashboard</h2>
-      
+
       <div className="dashboard-grid">
         <div className="dashboard-card">
           <h3>Total Analyses</h3>
@@ -85,20 +112,20 @@ function SpendingDashboard() {
         <div className="dashboard-card">
           <h3>Average Monthly Spending</h3>
           <p className="dashboard-stat">
-            R{(userResults.reduce((sum, r) => sum + r.metrics.totalExpenses, 0) / userResults.length).toFixed(2)}
+            R{(userResults.reduce((sum, r) => sum + (parseFloat(r.metrics?.totalExpenses) || 0), 0) / userResults.length).toFixed(2)}
           </p>
         </div>
 
         <div className="dashboard-card">
           <h3>Average Savings Rate</h3>
           <p className="dashboard-stat">
-            {(userResults.reduce((sum, r) => sum + r.metrics.savingsRate, 0) / userResults.length).toFixed(1)}%
+            {(userResults.reduce((sum, r) => sum + (parseFloat(r.metrics?.savingsRate) || 0), 0) / userResults.length).toFixed(1)}%
           </p>
         </div>
 
         <div className="dashboard-card">
           <h3>Latest Analysis</h3>
-          <p className="dashboard-stat">{new Date(userResults[0].date).toLocaleDateString()}</p>
+          <p className="dashboard-stat">{userResults[0]?.date ? new Date(userResults[0].date).toLocaleDateString() : 'N/A'}</p>
         </div>
       </div>
 
@@ -110,16 +137,16 @@ function SpendingDashboard() {
               .sort((a, b) => b[1] - a[1])
               .map(([category, total]) => {
                 const totalSpending = Object.values(trends.categoryTotals).reduce((sum, val) => sum + val, 0);
-                const percentage = ((total / totalSpending) * 100).toFixed(1);
+                const percentage = totalSpending > 0 ? ((total / totalSpending) * 100).toFixed(1) : 0;
                 return (
                   <div key={category} className="category-bar">
                     <div className="category-bar-header">
                       <span className="category-name">{category}</span>
-                      <span className="category-amount">R{total.toFixed(2)} ({percentage}%)</span>
+                      <span className="category-amount">R{parseFloat(total).toFixed(2)} ({percentage}%)</span>
                     </div>
                     <div className="category-bar-track">
-                      <div 
-                        className="category-bar-fill" 
+                      <div
+                        className="category-bar-fill"
                         style={{ width: `${percentage}%` }}
                       ></div>
                     </div>
@@ -130,14 +157,14 @@ function SpendingDashboard() {
         </div>
       )}
 
-      {trends && trends.monthlySpending && (
+      {trends && trends.monthlySpending && trends.monthlySpending.length > 0 && (
         <div className="dashboard-section">
           <h3>Spending History</h3>
           <div className="spending-history">
             {trends.monthlySpending.map((record, index) => (
               <div key={index} className="spending-record">
                 <span className="spending-date">{record.date}</span>
-                <span className="spending-amount">R{record.total.toFixed(2)}</span>
+                <span className="spending-amount">R{parseFloat(record.total).toFixed(2)}</span>
               </div>
             ))}
           </div>

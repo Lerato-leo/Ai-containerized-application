@@ -1,9 +1,8 @@
 # AI Financial Wellness Application
 
-A smart financial management application that helps users track income, expenses, and savings while providing AI-powered financial advice. Built with React and Node.js, featuring a beautiful peach-themed interface and intelligent goal planning.
+A smart financial management application that helps users track income, expenses, and savings while providing AI-powered financial advice. Built with React and Node.js, featuring light/dark mode themes and intelligent goal planning.
 
-**Tagline:** *"The world of financial freedom"*  
-**Powered by:** SyntaxNova
+**Tagline:** *"Your smart financial companion"*
 
 ---
 
@@ -38,12 +37,12 @@ A smart financial management application that helps users track income, expenses
 - npm (v6 or higher)
 - Google Gemini API key (**optional** - app works without it)
 
-### Note: Package.json Files
+### Project Structure
 This project has **TWO package.json files**:
 1. **Root `package.json`** - Backend dependencies (Express, axios, dotenv, etc.)
 2. **`frontend/package.json`** - Frontend dependencies (React, react-scripts, axios, etc.)
 
-Both files are **already included** in the repository - no need to create them!
+Both are already configured and ready to use.
 
 ### Installation
 

@@ -1,8 +1,8 @@
 # Environment Configuration Guide
 
-**AI Finance Application - Environment Setup**
+**AI Financial Wellness Application - Environment Setup**
 
-This guide explains how to configure the application's environment variables for deployment.
+This guide explains how to configure environment variables for local development and Railway.app deployment.
 
 ---
 
@@ -14,21 +14,27 @@ This guide explains how to configure the application's environment variables for
 cp .env.example .env
 ```
 
-### 2. Add Your Gemini API Key
+### 2. Configure Environment Variables
 
-Edit `.env`:
+Edit `.env` with your settings:
 
 ```dotenv
-AI_API_KEY=your_actual_gemini_api_key_here
+PORT=5000
+NODE_ENV=production
+AI_PROVIDER=gemini
+AI_API_KEY=your_gemini_api_key_here
+AI_MODEL=gemini-1.5-flash
+LOG_LEVEL=info
 ```
 
-Get your API key from: [Google AI Studio](https://ai.google.dev/tutorials/setup)
+### 3. Optional: Get Gemini API Key
 
-### 3. Deploy
+For AI-powered financial advice, get a FREE API key:
+- Visit: https://aistudio.google.com/app/apikey
+- Create new API key (no credit card required)
+- Add to `.env`
 
-```bash
-kubectl apply -f k8s-manifest.yaml
-```
+**Note:** App works great without API key using rule-based advice!
 
 ---
 
@@ -36,48 +42,42 @@ kubectl apply -f k8s-manifest.yaml
 
 ### Core Configuration
 
-| Variable | Default | Description | Required |
-|----------|---------|-------------|----------|
-| `PORT` | `3000` | Backend server port | No |
-| `NODE_ENV` | `production` | Node.js environment | No |
-| `FRONTEND_PORT` | `3001` | Frontend/Nginx port | No |
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PORT` | `5000` | Backend server port |
+| `NODE_ENV` | `production` | Development or production |
+| `LOG_LEVEL` | `info` | Log verbosity: debug, info, warn, error |
 
-### AI Configuration (Google Gemini)
+### AI Configuration (Optional)
 
-| Variable | Default | Description | Required |
-|----------|---------|-------------|----------|
-| `AI_PROVIDER` | `gemini` | AI provider (currently only gemini) | No |
-| `AI_API_KEY` | N/A | Google Gemini API key | **YES** |
-| `AI_MODEL` | `gemini-1.5-flash` | Model: `gemini-1.5-flash` or `gemini-1.5-pro` | No |
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `AI_PROVIDER` | `gemini` | AI provider (gemini) |
+| `AI_API_KEY` | N/A | Google Gemini API key |
+| `AI_MODEL` | `gemini-1.5-flash` | Model: flash or pro |
 
-### Database Configuration
+### Frontend Configuration
 
-| Variable | Default | Description | Required |
-|----------|---------|-------------|----------|
-| `DATA_DIR` | `./data` | Directory for JSON data files | No |
-
-### Kubernetes Configuration
-
-| Variable | Default | Description | Required |
-|----------|---------|-------------|----------|
-| `K8S_NAMESPACE` | `ai-finance` | Kubernetes namespace | No |
-
-### Logging
-
-| Variable | Default | Description | Required |
-|----------|---------|-------------|----------|
-| `LOG_LEVEL` | `info` | Log level: `debug`, `info`, `warn`, `error` | No |
-| `DEBUG` | `false` | Enable debug mode (`true` or `false`) | No |
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `REACT_APP_API_URL` | `http://localhost:5000` | Backend API URL |
 
 ---
 
 ## Getting Your Gemini API Key
 
-### Step 1: Go to Google AI Studio
-Visit: https://ai.google.dev/tutorials/setup
+### Step 1: Visit Google AI Studio
+https://aistudio.google.com/app/apikey
 
-### Step 2: Create a New API Key
+### Step 2: Create API Key
 - Click "Create API Key"
+- Select default project (or create new one)
+- Copy the key
+
+### Step 3: Add to .env
+```dotenv
+AI_API_KEY=your_copied_key_here
+```
 - Select your project (or create a new one)
 - Copy the generated key
 

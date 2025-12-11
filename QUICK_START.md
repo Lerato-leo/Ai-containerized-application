@@ -36,16 +36,16 @@ Get your **FREE** API key at: https://aistudio.google.com/app/apikey (no credit 
 
 **Open Terminal 1** - Start Backend:
 ```powershell
-node server.js
+$env:PORT=5000 ; node server.js
 ```
-Expected output: `Backend running on port 3000`
+Expected output: `AI Financial Wellness Coach Backend Running` on port 5000
 
 **Open Terminal 2** - Start Frontend:
 ```powershell
 cd frontend
 npm start
 ```
-Expected output: React will compile and automatically open http://localhost:3001 in your browser
+Expected output: React will compile and automatically open http://localhost:3002 in your browser
 
 **That's it!** Your app is now running with:
 - Backend API: http://localhost:3000

@@ -49,7 +49,7 @@ function FinancialSummary() {
       const income = incomeInputs
         .filter(val => val !== '')
         .map(val => parseFloat(val));
-      
+
       const expenses = expenseInputs
         .filter(val => val !== '')
         .map(val => parseFloat(val));
@@ -74,71 +74,75 @@ function FinancialSummary() {
   return (
     <div className="financial-summary">
       <h2>Quick Financial Summary</h2>
-      
+
       <form onSubmit={handleSubmit}>
         <div className="form-section">
-          <h3>Income Sources</h3>
-          {incomeInputs.map((value, index) => (
-            <div key={index} className="input-group">
-              <input
-                type="number"
-                step="0.01"
-                placeholder={`Income source ${index + 1} (Rands)`}
-                value={value}
-                onChange={(e) => handleIncomeChange(index, e.target.value)}
-                required={index === 0}
-              />
-              {incomeInputs.length > 1 && (
-                <button type="button" onClick={() => removeIncomeField(index)} className="remove-btn">
-                  Remove
-                </button>
-              )}
-            </div>
-          ))}
-          <button type="button" onClick={addIncomeField} className="add-btn">
-            Add Income Source
-          </button>
+          <h3>💰 Income Sources</h3>
+          <div className="input-container">
+            {incomeInputs.map((value, index) => (
+              <div key={index} className="input-group">
+                <input
+                  type="number"
+                  step="0.01"
+                  placeholder={`Income source ${index + 1} (Rands)`}
+                  value={value}
+                  onChange={(e) => handleIncomeChange(index, e.target.value)}
+                  required={index === 0}
+                />
+                {incomeInputs.length > 1 && (
+                  <button type="button" onClick={() => removeIncomeField(index)} className="remove-btn">
+                    ✕
+                  </button>
+                )}
+              </div>
+            ))}
+            <button type="button" onClick={addIncomeField} className="add-btn">
+              + Add Income Source
+            </button>
+          </div>
         </div>
 
         <div className="form-section">
-          <h3>Expenses</h3>
-          {expenseInputs.map((value, index) => (
-            <div key={index} className="input-group">
-              <input
-                type="number"
-                step="0.01"
-                placeholder={`Expense ${index + 1} (Rands)`}
-                value={value}
-                onChange={(e) => handleExpenseChange(index, e.target.value)}
-                required={index === 0}
-              />
-              {expenseInputs.length > 1 && (
-                <button type="button" onClick={() => removeExpenseField(index)} className="remove-btn">
-                  Remove
-                </button>
-              )}
-            </div>
-          ))}
-          <button type="button" onClick={addExpenseField} className="add-btn">
-            Add Expense
-          </button>
+          <h3>💸 Expenses</h3>
+          <div className="input-container">
+            {expenseInputs.map((value, index) => (
+              <div key={index} className="input-group">
+                <input
+                  type="number"
+                  step="0.01"
+                  placeholder={`Expense ${index + 1} (Rands)`}
+                  value={value}
+                  onChange={(e) => handleExpenseChange(index, e.target.value)}
+                  required={index === 0}
+                />
+                {expenseInputs.length > 1 && (
+                  <button type="button" onClick={() => removeExpenseField(index)} className="remove-btn">
+                    ✕
+                  </button>
+                )}
+              </div>
+            ))}
+            <button type="button" onClick={addExpenseField} className="add-btn">
+              + Add Expense
+            </button>
+          </div>
         </div>
 
         <button type="submit" className="submit-btn" disabled={loading}>
-          {loading ? 'Calculating...' : 'Get Summary'}
+          {loading ? '⏳ Calculating...' : '📊 Get Summary'}
         </button>
       </form>
 
       {error && (
         <div className="error-message">
-          <strong>Error:</strong> {error}
+          <strong>⚠️ Error:</strong> {error}
         </div>
       )}
 
       {result && (
         <div className="results">
-          <h2>Summary</h2>
-          
+          <h2>📈 Summary Results</h2>
+
           <div className="summary-grid">
             <div className="summary-card income">
               <h4>Total Income</h4>
@@ -149,7 +153,7 @@ function FinancialSummary() {
               <p className="value">R{result.totalExpenses.toFixed(2)}</p>
             </div>
             <div className={`summary-card balance ${result.balance >= 0 ? 'positive' : 'negative'}`}>
-              <h4>Balance</h4>
+              <h4>{result.balance >= 0 ? '✅' : '⚠️'} Balance</h4>
               <p className="value">R{result.balance.toFixed(2)}</p>
             </div>
           </div>

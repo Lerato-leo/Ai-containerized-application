@@ -2,24 +2,51 @@
 
 All notable changes and features of this project are documented here.
 
-## [Current Version] - November 2025
+## [v1.1.0] - December 2025
 
-### 🎨 UI/UX Enhancements
+### ✨ Recent Fixes & Improvements
+
+#### Dark Mode Enhancements
+- ✅ Fixed dark mode visibility for all summary results amounts
+- ✅ Added color transitions for smooth theme switching
+- ✅ Dark mode CSS variables applied across all components
+
+#### Bug Fixes
+- ✅ Fixed GoalsDashboard.js syntax error (duplicate return statement)
+- ✅ Fixed Dashboard.css malformed CSS rules
+- ✅ Removed dark mode button that wasn't functioning
+- ✅ Fixed Spending Dashboard error handling
+- ✅ Fixed Goals Dashboard styling and calculations
+- ✅ Enhanced Financial Summary component layout
+
+#### Repository Cleanup
+- ✅ Deleted unnecessary test files and scripts
+- ✅ Removed empty screenshots/videos folders
+- ✅ Removed GitHub Actions workflow (using Railway.app only)
+- ✅ Reduced markdown files to 6 essential docs
+- ✅ Cleaned up node_modules and package-lock.json from repo
+
+#### DevOps & Deployment
+- ✅ Railway.app deployment configured (railway.toml)
+- ✅ Docker multi-stage builds for frontend & backend
+- ✅ Kubernetes manifest for k8s deployment
+- ✅ Health checks configured every 10 seconds
+- ✅ Environment variables properly set for production
+
+### 🎨 UI/UX Features
 
 #### Theme System
-- **Light Mode**: Warm peach/cream color palette for professional, inviting look
-  - Peach accent (#e67e50) replacing blue
-  - Cream backgrounds (#fef8f3, #fffbf7)
-  - Rich brown text (#2d1810, #8b6f5c)
-- **Dark Mode**: Deep navy with purple accents
-- **Theme Toggle**: Modern glass-morphism button in header
-- **Professional Design**: Removed emojis, clean typography, consistent spacing
+- **Light Mode**: Professional color scheme with good contrast
+- **Dark Mode**: Deep backgrounds with proper text visibility
+- **Theme Toggle**: Accessible button in header
+- **Smooth Transitions**: CSS transitions for theme switching
 
 #### Currency & Localization
-- Changed from USD ($) to South African Rands (R)
-- Localized financial advice for South African context
-- SA bank recommendations (Capitec, Discovery, TymeBank)
-- SA investment options (TFSA, RA, offshore allowances)
+- South African Rands (R) currency
+- SA-focused financial advice
+- Localized bank and investment recommendations
+
+## [v1.0.0] - November 2025
 
 ### 🚀 Core Features
 
