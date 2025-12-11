@@ -7,24 +7,10 @@ startCommand = "node server.js"
 healthcheckPath = "/health"
 healthcheckInterval = 10
 healthcheckTimeout = 5
+restartPolicyMaxRetries = 5
 
-# Backend service configuration
-[[services]]
-name = "ai-finance-backend"
-dockerfile = "Dockerfile.backend"
-port = 3000
-
-[services.env]
+[env]
 NODE_ENV = "production"
-PORT = "3000"
+PORT = "5000"
 AI_PROVIDER = "gemini"
 LOG_LEVEL = "info"
-
-# Frontend service configuration
-[[services]]
-name = "ai-finance-frontend"
-dockerfile = "Dockerfile.frontend"
-port = 3000
-
-[services.env]
-NODE_ENV = "production"
